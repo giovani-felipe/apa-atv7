@@ -1,0 +1,82 @@
+{
+    "/api/alunos": {
+        "get": {
+            "data": [
+                {
+                    "id": 1,
+                    "nome": "Mario Nascimento",
+                    "matriculaId": 1,
+                    "endereco": "Rua das Almas, 34",
+                    "nascimento": "16/10/1985",
+                    "email": "mario@teste.com",
+                    "telefone": "31 99125-7880",
+                    "cpf": "896.555.236-63"
+                },
+                {
+                    "id": 2,
+                    "nome": "José da Silva",
+                    "matriculaId": 2,
+                    "endereco": "Rua das Canárias, 134",
+                    "nascimento": "16/05/1985",
+                    "email": "jose@teste.com",
+                    "telefone": "31 99125-7180",
+                    "cpf": "296.555.136-63"
+                },
+                {
+                    "id": 3,
+                    "nome": "Mara Moreira",
+                    "matriculaId": 3,
+                    "endereco": "Rua Alemanha, 244",
+                    "nascimento": "10/01/1985",
+                    "email": "mara@teste.com",
+                    "telefone": "31 78125-7980",
+                    "cpf": "296.125.126-53"
+                }
+            ]
+        }
+    },
+    "/api/alunos/:id": {
+        "get": {
+            "data": {
+                "id": 1,
+                "nome": "Mario Nascimento",
+                "matriculaId": 1,
+                "endereco": "Rua das Almas, 34",
+                "nascimento": "16/10/1985",
+                "email": "mario@teste.com",
+                "telefone": "31 99125-7880",
+                "cpf": "896.555.236-63"
+            }
+        }
+    },
+    "/api/turmas": {
+        "get": {
+            "data": [
+                {
+                    "id": 1,
+                    "nome": "Turma1"
+                },
+                {
+                    "id": 2,
+                    "nome": "Turma2"
+                },
+                {
+                    "id": 3,
+                    "nome": "Turma3"
+                },
+                {
+                    "id": 4,
+                    "nome": "Turma4"
+                }
+            ]
+        }
+    },
+    "/api/turmas/:id": {
+        "get": {
+            "data": {
+                "id": 1,
+                "nome": "Turma1"
+            }
+        }
+    }
+}
