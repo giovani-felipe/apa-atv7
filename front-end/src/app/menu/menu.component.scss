@@ -1,0 +1,40 @@
+.mat-subheader {
+  font-size: 20px;
+  color: white;
+  background-color: #673ab7;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  color: #673ab7;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.container {
+  margin-top: 25px;
+  margin-left: 20px;
+  font-family: 'Verdana';
+  font-size: 30px;
+}
+
+.main-title {
+  text-align: center; 
+  font-size: 25px;
+  width: 100%;
+}
+

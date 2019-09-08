@@ -15,6 +15,21 @@ import { RegistrationEditComponent } from './pages/registration-edit/registratio
 import { AppRoutingModule } from './app-routing.module';
 import { StudentsComponent } from './pages/students/students.component';
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuComponent } from './menu/menu.component';
+import {  
+  MatButtonModule,
+  MatCardModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatTableModule,
+  MatToolbarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -30,11 +45,30 @@ import { StudentDetailComponent } from './pages/student-detail/student-detail.co
     RegistrationNewComponent,
     RegistrationEditComponent,
     StudentsComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+    MatProgressSpinnerModule, 
+    MatSelectModule,
+    MatSidenavModule,  
+    MatTableModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

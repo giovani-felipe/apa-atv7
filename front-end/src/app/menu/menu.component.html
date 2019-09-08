@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$async) ? 'over' : 'side'"
+      [opened]="!(isHandset$async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-subheader routerLink="/classes" routerLinkActive="active">Turmas</a>
+      <br>
+
+      <a mat-subheader routerLink="/students" routerLinkActive="active">Alunos</a> 
+      <br>
+
+      <a mat-subheader routerLink="/registrations" routerLinkActive="active">Matrículas</a>
+
+      <a mat-list-item routerLink="/registration-new" routerLinkActive="active">Nova</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/registration-edit/1" routerLinkActive="active">Editar</a>
+
+      <a mat-subheader routerLink="/disciplines" routerLinkActive="active">Disciplinas</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/discipline-new" routerLinkActive="active">Nova</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/discipline-edit/1" routerLinkActive="active">Editar</a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="row main-title">
+        <div class="col">
+          Arquitetura de Software Distribuído - Oferta 11
+        </div>
+        <div class="col">
+          Análise, Projeto e Avaliação Arquitetural - Prova de Conceito
+        </div>
+      </div>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
