@@ -1,6 +1,6 @@
 const Base = require('./base');
 
-class Disciplina extends Base {
+class Discipline extends Base {
     constructor() {
         this._nome;
     }
@@ -8,4 +8,4 @@ class Disciplina extends Base {
     get nome() { return this._nome; }
 }
 
-module.exports = Disciplina;
+module.exports = Discipline;
