@@ -1,10 +1,17 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Discipline = sequelize.define('Discipline', {
-    name: DataTypes.STRING
-  }, {});
+  const Discipline = sequelize.define(
+    "Discipline",
+    {
+      name: DataTypes.STRING
+    },
+    {}
+  );
   Discipline.associate = function(models) {
-    // associations can be defined here
+    Classe.belongsToMany(models["Classe"], {
+      through: "ClasseDiscipline",
+      foreignKey: 'discipline_id'
+    });
   };
   return Discipline;
 };
