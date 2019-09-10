@@ -17,23 +17,23 @@ const { StudentController } = require('../controllers');
 const studentController = new StudentController();
 
 //Hello
-router.route('/v1/hello').get(helloController.hello);
+router.route('/hello').get(helloController.hello);
 
 //Class
-router.route('/v1/class').get(classController.fetchAll);
-router.route('/v1/class/:id').get(classController.fetchClass);
+router.route('/class').get(classController.fetchAll);
+router.route('/class/:id').get(classController.fetchClass);
 
 //Discipline
-router.route('/v1/discipline').get(disciplineController.fetchAll);
-router.route('/v1/discipline/:id').get(disciplineController.fetchDiscipline);
+router.route('/discipline').get(disciplineController.fetchAll);
+router.route('/discipline/:id').get(disciplineController.fetchDiscipline);
 
 //Registration
-router.route('/v1/registration').get(registrationController.fetchAll);
-router.route('/v1/registration/:id').get(registrationController.fetchRegistration);
+router.route('/registration').get(registrationController.fetchAll);
+router.route('/registration/:id').get(registrationController.fetchRegistration);
 
 //Student
-router.route('/v1/student').get(studentController.fetchAll);
-router.route('/v1/student/:id').get(studentController.fetchStudent);
+router.route('/student').get(studentController.fetchAll);
+router.route('/student/:id').get(studentController.fetchStudent);
 
 
 
