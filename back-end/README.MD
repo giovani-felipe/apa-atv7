@@ -1,7 +1,30 @@
-# Sequelize
+# Start project
 
-##  Generate model
+## Init
+
+### Install dependencies
 
 ```
-npx sequelize-cli model:generate --name Discipline --attributes name:string
+npm i
 ```
+### Execute migrations
+
+```
+npx sequelize-cli db:migrate
+```
+
+### Execute seeds
+
+```
+npx sequelize-cli db:seed:all
+```
+
+### Run
+
+```
+npm start
+```
+
+### URL
+
+http://localhost:3000

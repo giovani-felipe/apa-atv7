@@ -1,13 +1,7 @@
 class Base {
-
     constructor(id) {
-        this._id = id;
+        this.id = id;
     }
-
-    get id() { return this._id; }
-
-    set id(id) { this._id = id; }
-
 }
 
 module.exports = Base;

@@ -1,13 +1,16 @@
+const { DisciplineService } = require('../services');
 class DisciplineController {
     constructor() {
 
     }
 
-    fetchAll(req, res, next) {
-        res.json({ data: 'fetchAll' });
+    async fetchAll(req, res, next) {
+        let service = new DisciplineService();
+        let data = await service.findAll();
+        res.json({ status: 'success', data });
     }
 
-    fetchDiscipline(req, res, next) {
+    async fetchDiscipline(req, res, next) {
         res.json({ data: 'fetchClass' });
     }
 
