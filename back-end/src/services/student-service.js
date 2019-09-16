@@ -24,9 +24,9 @@ class StudentService {
     return students;
   }
 
-  async findClass(id = null) {
+  async findStudent(id = null) {
     if (id === null)
-      throw new Error('Class id is necessary!');
+      throw new Error('Student id is necessary!');
 
     let data = await repository.findOne(
       {

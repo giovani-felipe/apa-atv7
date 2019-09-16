@@ -63,3 +63,5 @@ typings/
 back-end/database.db
 .vscode
 
+.idea
+
