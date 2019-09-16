@@ -38,7 +38,5 @@ router.route('/student').post(studentController.saveStudent);
 router.route('/student').put(studentController.updateStudent);
 router.route('/student/:id').delete(studentController.deleteStudent);
 
-
-
 module.exports = router;
 
