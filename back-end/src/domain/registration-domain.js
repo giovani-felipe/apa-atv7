@@ -1,7 +1,9 @@
 const Base = require('./base');
 
-class Registration extends Base {
+class RegistrationDomain extends Base {
+    
     constructor() {
+        super();
         this._classe;
         this._code;
         this._state;
@@ -12,4 +14,4 @@ class Registration extends Base {
     get state() { return this._state; }
 }
 
-module.exports = Registration;
+module.exports = RegistrationDomain;

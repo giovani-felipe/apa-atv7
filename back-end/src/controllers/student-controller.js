@@ -1,10 +1,15 @@
+const { StudentService } = require('../services')
 class StudentController {
     constructor() {
 
     }
 
-    fetchAll(req, res, next) {
-        res.json({ data: 'fetchAll' });
+    async fetchAll(req, res, next) {
+        const service = new StudentService()
+
+        const data = await service.findAll()
+        
+        res.json({ status: 'success', data });
     }
 
     fetchStudent(req, res, next) {
