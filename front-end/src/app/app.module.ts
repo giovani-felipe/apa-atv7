@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ClassesComponent } from './pages/classes/classes.component';
 import { ClassDetailComponent } from './pages/class-detail/class-detail.component';
@@ -17,7 +17,7 @@ import { StudentsComponent } from './pages/students/students.component';
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
-import {  
+import {   
   MatButtonModule,
   MatCardModule,
   MatIconModule,
@@ -68,7 +68,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatTableModule,
     MatToolbarModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
