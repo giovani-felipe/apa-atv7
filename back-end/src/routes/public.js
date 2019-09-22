@@ -28,18 +28,10 @@ router.route('/enroll')
 router.route('/enroll/:id').get(enrollController.fetchEnroll);
 
 //Student
-<<<<<<< HEAD
 router.route('/students').get(studentController.fetchAll);
 router.route('/students/:id').get(studentController.fetchStudent);
 
 
-=======
-router.route('/student').get(studentController.fetchAll);
-router.route('/student/:id').get(studentController.fetchStudent);
-router.route('/student').post(studentController.saveStudent);
-router.route('/student/:id').put(studentController.updateStudent);
-router.route('/student/:id').delete(studentController.deleteStudent);
->>>>>>> fdf8e5224f2c5913f87abd3de5b57d67db4a8c4c
 
 module.exports = router;
 
