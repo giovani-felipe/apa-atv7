@@ -34,8 +34,9 @@ router.route('/registration/:id').get(registrationController.fetchRegistration);
 //Student
 router.route('/student').get(studentController.fetchAll);
 router.route('/student/:id').get(studentController.fetchStudent);
-
-
+router.route('/student').post(studentController.saveStudent);
+router.route('/student/:id').put(studentController.updateStudent);
+router.route('/student/:id').delete(studentController.deleteStudent);
 
 module.exports = router;
 

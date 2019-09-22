@@ -11,7 +11,11 @@ class DisciplineController {
     }
 
     async fetchDiscipline(req, res, next) {
-        res.json({ data: 'fetchClass' });
+        const service = new DisciplineService();
+        let { id } = req.params;
+        const data = await service.findDiscipline(id);
+
+        res.json({ status: 'success', data });
     }
 
 }
