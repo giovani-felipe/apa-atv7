@@ -1,17 +1,14 @@
-const { Discipline: repository } = require('../repositories/models');
+const { DisciplinesMock } = require('./moks');
 const { DisciplineDomain } = require('../domain');
 class DisciplineService {
 
-  async findAll() {
-    let data = await repository.findAll({ attributes: { exclude: ['createdAt', 'updatedAt'] } });
-
-    let disciplines = [];
-
-    data.forEach(ele => disciplines.push(new DisciplineDomain(ele.id, ele.name)));
-
-    return disciplines;
+  findAll() {
+    return DisciplinesMock.map(({ id, name }) => new DisciplineDomain(id, name));
   }
 
+  findDiscipline(id) {
+    return DisciplinesMock.find(ele => ele.id == id);
+  }
 }
 
 module.exports = DisciplineService;

@@ -2,6 +2,8 @@ const express = require('express');
 const { public } = require('../routes');
 const app = express();
 
+app.use(express.json());
+
 app.use('/api/v1', public);
 
 app.use((req, res, next) => {
@@ -9,7 +11,8 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-    res.status(500).send({ status: 'error', error: err });
+    console.error(err.stack);
+    res.status(500).send({ status: 'error', error: err.message });
 });
 
 module.exports = app;

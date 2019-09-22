@@ -1,6 +1,6 @@
-const Student = require('./student');
+const StudentDomain = require('./student-domain');
 const DisciplineDomain = require('./discipline-domain');
-const Registration = require('./registration');
+const EnrollDomain = require('./enroll-domain');
 const ClasseDomain = require('./classe-domain');
 
-module.exports = { Student, DisciplineDomain, Registration, ClasseDomain };
+module.exports = { StudentDomain, DisciplineDomain, EnrollDomain, ClasseDomain };

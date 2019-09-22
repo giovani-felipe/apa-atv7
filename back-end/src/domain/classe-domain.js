@@ -1,10 +1,9 @@
 const Base = require('./base');
 
 class ClasseDomain extends Base {
-    constructor(id, name, discipline = []) {
+    constructor(id, name) {
         super(id);
         this.name = name;
-        this.discipline = discipline;
     }
 }
 

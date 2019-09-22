@@ -4,14 +4,18 @@ class DisciplineController {
 
     }
 
-    async fetchAll(req, res, next) {
+    fetchAll(req, res, next) {
         let service = new DisciplineService();
-        let data = await service.findAll();
+        let data = service.findAll();
         res.json({ status: 'success', data });
     }
 
-    async fetchDiscipline(req, res, next) {
-        res.json({ data: 'fetchClass' });
+    fetchDiscipline(req, res, next) {
+        let service = new DisciplineService();
+        let { id } = req.params;
+
+        let data = service.findDiscipline(id);
+        res.json({ status: 'success', data });
     }
 
 }

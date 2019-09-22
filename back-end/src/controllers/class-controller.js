@@ -4,18 +4,27 @@ class ClassController {
 
     }
 
-    async fetchAll(req, res, next) {
+    fetchAll(req, res, next) {
         const service = new ClasseService();
 
-        const data = await service.findAll();
+        const data = service.findAll();
 
         res.json({ status: 'success', data });
     }
 
-    async fetchClass(req, res, next) {
+    fetchClass(req, res, next) {
         const service = new ClasseService();
         let { id } = req.params;
-        const data = await service.findClass(id);
+        const data = service.findClass(id);
+
+        res.json({ status: 'success', data });
+    }
+
+    fetchDisciplines(req, res, next) {
+        const service = new ClasseService();
+
+        const { id } = req.params;
+        const data = service.findDisciplines(id);
 
         res.json({ status: 'success', data });
     }

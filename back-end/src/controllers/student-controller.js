@@ -1,16 +1,19 @@
+const { StudentService } = require('../services');
 class StudentController {
-    constructor() {
-
-    }
 
     fetchAll(req, res, next) {
-        res.json({ data: 'fetchAll' });
+        const service = new StudentService();
+        const data = service.findAll();
+        res.json({ status: 'success', data });
     }
 
     fetchStudent(req, res, next) {
-        res.json({ data: 'fetchStudent' });
-    }
+        const service = new StudentService();
+        const { id } = req.params;
 
+        const data = service.findStudent(id);
+        res.json({ status: 'success', data });
+    }
 }
 
 module.exports = StudentController;
