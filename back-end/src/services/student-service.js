@@ -1,46 +1,57 @@
-const { Classe: repository } = require('../repositories/models');
+const { Student: repository } = require('../repositories/models');
 const { StudentDomain } = require('../domain');
 
 class StudentService {
+    
+    async findAll() {
+        let data = await repository.findAll({
+            attributes: { exclude: ['createdAt', 'updatedAt']}
+        });
 
-  async findAll() {
-    let data = await repository.findAll(
-      {
-        include: [{ model: Student, attributes: { exclude: ['createdAt', 'updatedAt'] } }],
-        attributes: { exclude: ['createdAt', 'updatedAt'] }
-      });
+        let student = [];
+        
+        data.forEach(ele => student.push(new StudentDomain(ele.id, ele.name, ele.registration, ele.cpf, ele.fone, ele.email, ele.address, ele.birth)));
 
-    let students = [];
+        return student;
+    }
 
-    data.forEach(ele => {
+    async findStudent(id = null) {
+        if (id == null) {
+            throw new Error('Student id is necessary!')
+        }
 
-      let Students = [];
+        let data = await repository.findOne(
+            {
+                where: { id },
+                include: [{ model: Student, attributes: { exclude: ['createdAt', 'updatedAt']}}],
+                attributes: { exclude: ['createdAt', 'updatedAt']}
+            }
+        );
+        
+        let student = [];
 
-      ele.Students.forEach(({ id, name }) => Students.push(new StudentDomain(id, name)));
+        data.forEach(({ id, name, registration, cpf, fone, email, address, birth}) => student.push(new StudentDomain(id, name, registration, cpf, fone, email, address, birth)));
 
-      students.push(new StudentDomain(ele.id, ele.name, Students))
-    });
+        return new StudentDomain(data.id, data.name, data.registration, data.cpf, data.fone, data.email, data.address, data.birth);
+    }
+    
+    async createStudent(object) {
 
-    return students;
-  }
+        let data = await repository.create(object);
+        return data;
+    }
 
-  async findStudent(id = null) {
-    if (id === null)
-      throw new Error('Student id is necessary!');
+    async putStudent(id, object) {
 
-    let data = await repository.findOne(
-      {
-        where: { id },
-        include: [{ model: Student, attributes: { exclude: ['createdAt', 'updatedAt'] } }],
-        attributes: { exclude: ['createdAt', 'updatedAt'] }
-      });
+        let data = await repository.update(id, object);
+        return data;
+    }
 
-    let Students = [];
+    async destroyStudent(id) {
 
-    data.Students.forEach(({ id, name }) => Students.push(new StudentDomain(id, name)));
-
-    return new StudentDomain(data.id, data.name, Students);
-  }
+        let data = await repository.destroy(id);
+        return data;
+    }
 }
 
 module.exports = StudentService;

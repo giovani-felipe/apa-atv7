@@ -1,7 +1,6 @@
+const { RegistrationService } = require('../services');
 class RegistrationController {
-    constructor() {
-
-    }
+    constructor() {}
 
     fetchAll(req, res, next) {
         res.json({ data: 'fetchAll' });

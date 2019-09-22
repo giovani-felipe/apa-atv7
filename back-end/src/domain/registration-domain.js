@@ -3,7 +3,7 @@ const Base = require('./base');
 class RegistrationDomain extends Base {
     
     constructor() {
-        super();
+        super(id);
         this._classe;
         this._code;
         this._state;

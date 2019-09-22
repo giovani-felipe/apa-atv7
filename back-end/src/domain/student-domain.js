@@ -2,15 +2,15 @@ const Base = require('./base');
 
 class StudentDomain extends Base {
 
-    constructor() {
-        super();
-        this._name;
-        this._registration;
-        this._cpf;
-        this._fone;
-        this._email;
-        this._address;
-        this._birth;
+    constructor(id, name, registration, cpf, fone, email, address, birth) {
+        super(id);
+        this._name = name;
+        this._registration = registration;
+        this._cpf = cpf;
+        this._fone = fone;
+        this._email = email;
+        this._address = address;
+        this._birth = birth;
     }
 
     get name() { return this._name; }

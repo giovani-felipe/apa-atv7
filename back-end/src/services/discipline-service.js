@@ -12,6 +12,24 @@ class DisciplineService {
     return disciplines;
   }
 
+  async findDiscipline(id = null) {
+    if (id === null)
+      throw new Error('Discipline id is necessary!');
+
+    let data = await repository.findOne(
+        {
+          where: { id },
+          include: [{ model: Discipline, attributes: { exclude: ['createdAt', 'updatedAt'] } }],
+          attributes: { exclude: ['createdAt', 'updatedAt'] }
+        });
+
+    let disciplines = [];
+
+    data.Disciplines.forEach(({ id, name }) => disciplines.push(new DisciplineDomain(id, name)));
+
+    return new DisciplineDomain(data.id, data.name);
+  }
+
 }
 
 module.exports = DisciplineService;
