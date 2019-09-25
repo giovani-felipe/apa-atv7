@@ -4,32 +4,32 @@
             "data": [
                 {
                     "id": 1,
-                    "nome": "Mario Nascimento",
+                    "name": "Mario Matias",
                     "matriculaId": 1,
-                    "endereco": "Rua das Almas, 34",
-                    "nascimento": "16/10/1985",
+                    "address": "Rua das Almas, 34",
+                    "birth": "16/10/1985",
                     "email": "mario@teste.com",
-                    "telefone": "31 99125-7880",
+                    "phone": "31 99125-7880",
                     "cpf": "896.555.236-63"
                 },
                 {
                     "id": 2,
-                    "nome": "José da Silva",
+                    "name": "José da Silva",
                     "matriculaId": 2,
-                    "endereco": "Rua das Canárias, 134",
-                    "nascimento": "16/05/1985",
+                    "address": "Rua das Canárias, 134",
+                    "birth": "16/05/1985",
                     "email": "jose@teste.com",
-                    "telefone": "31 99125-7180",
+                    "phone": "31 99125-7180",
                     "cpf": "296.555.136-63"
                 },
                 {
                     "id": 3,
-                    "nome": "Mara Moreira",
+                    "name": "Mara Moreira",
                     "matriculaId": 3,
-                    "endereco": "Rua Alemanha, 244",
-                    "nascimento": "10/01/1985",
+                    "address": "Rua Alemanha, 244",
+                    "birth": "10/01/1985",
                     "email": "mara@teste.com",
-                    "telefone": "31 78125-7980",
+                    "phone": "31 78125-7980",
                     "cpf": "296.125.126-53"
                 }
             ]
@@ -39,12 +39,12 @@
         "get": {
             "data": {
                 "id": 1,
-                "nome": "Mario Nascimento",
+                "name": "Mario Matias",
                 "matriculaId": 1,
-                "endereco": "Rua das Almas, 34",
-                "nascimento": "16/10/1985",
+                "address": "Rua das Almas, 34",
+                "birth": "16/10/1985",
                 "email": "mario@teste.com",
-                "telefone": "31 99125-7880",
+                "phone": "31 99125-7880",
                 "cpf": "896.555.236-63"
             }
         }
@@ -54,28 +54,46 @@
             "data": [
                 {
                     "id": 1,
-                    "nome": "Turma1"
+                    "name": "Turma1",
+					"shift": "Manhã"
                 },
                 {
                     "id": 2,
-                    "nome": "Turma2"
+                    "name": "Turma2",
+					"shift": "Tarde"
                 },
                 {
                     "id": 3,
-                    "nome": "Turma3"
-                },
-                {
-                    "id": 4,
-                    "nome": "Turma4"
+                    "name": "Turma3",
+					"shift": "Noite"
                 }
             ]
         }
     },
-    "/api/turmas/:id": {
+    "/api/turmas/1": {
         "get": {
             "data": {
                 "id": 1,
-                "nome": "Turma1"
+                "name": "Turma1",
+				"shift": "Manhã"
+            }
+        }
+    },
+	"/api/turmas/2": {
+        "get": {
+            "data": {
+                "id": 2,
+                "name": "Turma2",
+				"shift": "Tarde"
+			}
+        }
+    },
+	"/api/turmas/3": {
+        "get": {
+            "data": {
+                "id": 3,
+                "name": "Turma3",
+				"shift": "Noite"
             }
         }
     }
