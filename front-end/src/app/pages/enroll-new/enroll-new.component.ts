@@ -29,9 +29,9 @@ students: Student[];
 
   ngOnInit() {
     this.enrollForm = this.formBuilder.group({
-      'id_student' : [0, Validators.required],
-      'id_class' : [0, Validators.required],
-      'id_discipline' : [0, Validators.required]
+      '_student' : [0, Validators.required],
+      '_class' : [0, Validators.required],
+      '_discipline' : [0, Validators.required]
     });
 
     this.api.getAll<Class>("classes")
@@ -57,7 +57,7 @@ students: Student[];
   addEnroll(form: NgForm) {
     this.isLoadingResults = true;
 
-    this.api.add<Enroll>(form, "enroll")
+    this.api.add<Enroll>(form, "enrolls")
       .subscribe(res => {
           const id = res['id'];
           this.isLoadingResults = false;

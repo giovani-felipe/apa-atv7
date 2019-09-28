@@ -1,18 +1,22 @@
 module.exports = [
   {
     "id": 1,
-    "name": "Disciplina 1"
+    "name": "Algoritmos Estruturados",
+    "description": "A disciplina abrange..."
   },
   {
     "id": 2,
-    "name": "Disciplina 2"
+    "name": "História Geral",
+    "description": "A disciplina abrange..."
   },
   {
     "id": 3,
-    "name": "Disciplina 3"
+    "name": "Cálculo 3",
+    "description": "A disciplina abrange..."
   },
   {
     "id": 4,
-    "name": "Disciplina 4"
+    "name": "Eletromagnetismo",
+    "description": "A disciplina abrange..."
   }
 ];

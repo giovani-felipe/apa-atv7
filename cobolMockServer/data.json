@@ -1,100 +1,272 @@
 {
-    "/api/alunos": {
-        "get": {
-            "data": [
-                {
-                    "id": 1,
-                    "name": "Mario Matias",
-                    "matriculaId": 1,
-                    "address": "Rua das Almas, 34",
-                    "birth": "16/10/1985",
-                    "email": "mario@teste.com",
-                    "phone": "31 99125-7880",
-                    "cpf": "896.555.236-63"
-                },
-                {
-                    "id": 2,
-                    "name": "José da Silva",
-                    "matriculaId": 2,
-                    "address": "Rua das Canárias, 134",
-                    "birth": "16/05/1985",
-                    "email": "jose@teste.com",
-                    "phone": "31 99125-7180",
-                    "cpf": "296.555.136-63"
-                },
-                {
-                    "id": 3,
-                    "name": "Mara Moreira",
-                    "matriculaId": 3,
-                    "address": "Rua Alemanha, 244",
-                    "birth": "10/01/1985",
-                    "email": "mara@teste.com",
-                    "phone": "31 78125-7980",
-                    "cpf": "296.125.126-53"
-                }
-            ]
-        }
-    },
-    "/api/alunos/:id": {
-        "get": {
-            "data": {
-                "id": 1,
-                "name": "Mario Matias",
-                "matriculaId": 1,
-                "address": "Rua das Almas, 34",
-                "birth": "16/10/1985",
-                "email": "mario@teste.com",
-                "phone": "31 99125-7880",
-                "cpf": "896.555.236-63"
-            }
-        }
-    },
-    "/api/turmas": {
-        "get": {
-            "data": [
-                {
-                    "id": 1,
-                    "name": "Turma1",
+	"/api/students": {
+		"get": {
+			"data": [
+				{
+					"id": 1,
+					"name": "Mario Matias",
+					"address": "Rua das Almas, 34",
+					"birth": "16/10/1985",
+					"email": "mario@teste.com",
+					"phone": "31 99125-7880",
+					"cpf": "896.555.236-63"
+				},
+				{
+					"id": 2,
+					"name": "José da Silva",
+					"address": "Rua das Canárias, 134",
+					"birth": "16/05/1985",
+					"email": "jose@teste.com",
+					"phone": "31 99125-7180",
+					"cpf": "296.555.136-63"
+				},
+				{
+					"id": 3,
+					"name": "Mara Moreira",
+					"address": "Rua Alemanha, 244",
+					"birth": "10/01/1985",
+					"email": "mara@teste.com",
+					"phone": "31 78125-7980",
+					"cpf": "296.125.126-53"
+				}
+			]
+		}
+	},
+	"/api/disciplines": {
+		"get": {
+			"data": [
+				{
+					"id": 1,
+					"name": "Historia Geral",
+					"description": "Abrange os tópicos...",
+					"id_class": 1
+				},
+				{
+					"id": 2,
+					"name": "Geografia do Brasil",
+					"description": "Abrange os tópicos...",
+					"id_class": 1
+				},
+				{
+					"id": 3,
+					"name": "Trigonometria",
+					"description": "Abrange os tópicos...",
+					"id_class": 1
+				},
+				{
+					"id": 4,
+					"name": "Historia Geral",
+					"description": "Abrange os tópicos...",
+					"id_class": 2
+				},
+				{
+					"id": 5,
+					"name": "Geografia do Brasil",
+					"description": "Abrange os tópicos...",
+					"id_class": 2
+				},
+				{
+					"id": 6,
+					"name": "Trigonometria",
+					"description": "Abrange os tópicos...",
+					"id_class": 2
+				},
+				{
+					"id": 7,
+					"name": "Historia Geral",
+					"description": "Abrange os tópicos...",
+					"id_class": 3
+				},
+				{
+					"id": 8,
+					"name": "Geografia do Brasil",
+					"description": "Abrange os tópicos...",
+					"id_class": 3
+				},
+				{
+					"id": 9,
+					"name": "Trigonometria",
+					"description": "Abrange os tópicos...",
+					"id_class": 3
+				}
+			]
+		}
+	},
+	"/api/disciplines/1": {
+		"get": {
+			"data": {
+				"id": 1,
+				"name": "Historia Geral",
+				"description": "Abrange os tópicos...",
+				"id_class": 1
+			}
+		}
+	},
+	"/api/disciplines/2": {
+		"get": {
+			"data": {
+				"id": 2,
+				"name": "Geografia do Brasil",
+				"description": "Abrange os tópicos...",
+				"id_class": 1
+			}
+		}
+	},
+	"/api/disciplines/3": {
+		"get": {
+			"data": {
+				"id": 3,
+				"name": "Trigonometria",
+				"description": "Abrange os tópicos...",
+				"id_class": 1
+			}
+		}
+	},
+	"/api/disciplines/4": {
+		"get": {
+			"data": {
+				"id": 4,
+				"name": "Historia Geral",
+				"description": "Abrange os tópicos...",
+				"id_class": 2
+			}
+		}
+	},
+	"/api/disciplines/5": {
+		"get": {
+			"data": {
+				"id": 5,
+				"name": "Geografia do Brasil",
+				"description": "Abrange os tópicos...",
+				"id_class": 2
+			}
+		}
+	},
+	"/api/disciplines/6": {
+		"get": {
+			"data": {
+				"id": 6,
+				"name": "Trigonometria",
+				"description": "Abrange os tópicos...",
+				"id_class": 2
+			}
+		}
+	},
+	"/api/disciplines/7": {
+		"get": {
+			"data": {
+				"id": 7,
+				"name": "Historia Geral",
+				"description": "Abrange os tópicos...",
+				"id_class": 3
+			}
+		}
+	},
+	"/api/disciplines/8": {
+		"get": {
+			"data": {
+				"id": 8,
+				"name": "Geografia do Brasil",
+				"description": "Abrange os tópicos...",
+				"id_class": 3
+			}
+		}
+	},
+	"/api/disciplines/9": {
+		"get": {
+			"data": {
+				"id": 9,
+				"name": "Trigonometria",
+				"description": "Abrange os tópicos...",
+				"id_class": 3
+			}
+		}
+	},
+	"/api/students/1": {
+		"get": {
+			"data": {
+				"id": 1,
+				"name": "Mario Matias",
+				"address": "Rua das Almas, 34",
+				"birth": "16/10/1985",
+				"email": "mario@teste.com",
+				"phone": "31 99125-7880",
+				"cpf": "896.555.236-63"
+			}
+		}
+	},
+	"/api/students/2": {
+		"get": {
+			"data": {
+				"id": 2,
+				"name": "José da Silva",
+				"address": "Rua das Canárias, 134",
+				"birth": "16/05/1985",
+				"email": "jose@teste.com",
+				"phone": "31 99125-7180",
+				"cpf": "296.555.136-63"
+			}
+		}
+	},
+	"/api/students/3": {
+		"get": {
+			"data": {
+				"id": 3,
+				"name": "Mara Moreira",
+				"address": "Rua Alemanha, 244",
+				"birth": "10/01/1985",
+				"email": "mara@teste.com",
+				"phone": "31 78125-7980",
+				"cpf": "296.125.126-53"
+			}
+		}
+	},
+	"/api/classes": {
+		"get": {
+			"data": [
+				{
+					"id": 1,
+					"name": "Turma1",
 					"shift": "Manhã"
-                },
-                {
-                    "id": 2,
-                    "name": "Turma2",
+				},
+				{
+					"id": 2,
+					"name": "Turma2",
 					"shift": "Tarde"
-                },
-                {
-                    "id": 3,
-                    "name": "Turma3",
+				},
+				{
+					"id": 3,
+					"name": "Turma3",
 					"shift": "Noite"
-                }
-            ]
-        }
-    },
-    "/api/turmas/1": {
-        "get": {
-            "data": {
-                "id": 1,
-                "name": "Turma1",
+				}
+			]
+		}
+	},
+	"/api/classes/1": {
+		"get": {
+			"data": {
+				"id": 1,
+				"name": "Turma1",
 				"shift": "Manhã"
-            }
-        }
-    },
-	"/api/turmas/2": {
-        "get": {
-            "data": {
-                "id": 2,
-                "name": "Turma2",
+			}
+		}
+	},
+	"/api/classes/2": {
+		"get": {
+			"data": {
+				"id": 2,
+				"name": "Turma2",
 				"shift": "Tarde"
 			}
-        }
-    },
-	"/api/turmas/3": {
-        "get": {
-            "data": {
-                "id": 3,
-                "name": "Turma3",
+		}
+	},
+	"/api/classes/3": {
+		"get": {
+			"data": {
+				"id": 3,
+				"name": "Turma3",
 				"shift": "Noite"
-            }
-        }
-    }
+			}
+		}
+	}
 }

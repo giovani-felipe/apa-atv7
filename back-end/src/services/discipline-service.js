@@ -3,7 +3,7 @@ const { DisciplineDomain } = require('../domain');
 class DisciplineService {
 
   fetchAll() {
-    return DisciplinesMock.map(({ id, name }) => new DisciplineDomain(id, name));
+    return DisciplinesMock.map(({ id, name, description }) => new DisciplineDomain(id, name, description));
   }
 
   fetchDiscipline(id) {
@@ -12,7 +12,7 @@ class DisciplineService {
 
   fetchDisciplines(ids = []) {
     return DisciplinesMock.filter(ele => ids.includes(ele.id))
-      .map(({ id, name }) => new DisciplineDomain(id, name));
+      .map(({ id, name, description }) => new DisciplineDomain(id, name, description));
   }
 }
 
