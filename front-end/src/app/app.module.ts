@@ -8,10 +8,10 @@ import { DisciplinesComponent } from './pages/disciplines/disciplines.component'
 import { DisciplineDetailComponent } from './pages/discipline-detail/discipline-detail.component';
 import { DisciplineNewComponent } from './pages/discipline-new/discipline-new.component';
 import { DisciplineEditComponent } from './pages/discipline-edit/discipline-edit.component';
-import { RegistrationsComponent } from './pages/registrations/registrations.component';
-import { RegistrationDetailComponent } from './pages/registration-detail/registration-detail.component';
-import { RegistrationNewComponent } from './pages/registration-new/registration-new.component';
-import { RegistrationEditComponent } from './pages/registration-edit/registration-edit.component';
+import { EnrollsComponent } from './pages/enrolls/enrolls.component';
+import { EnrollDetailComponent } from './pages/enroll-detail/enroll-detail.component';
+import { EnrollNewComponent } from './pages/enroll-new/enroll-new.component';
+import { EnrollEditComponent } from './pages/enroll-edit/enroll-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudentsComponent } from './pages/students/students.component';
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
@@ -40,10 +40,10 @@ import { LayoutModule } from '@angular/cdk/layout';
     DisciplineDetailComponent,
     DisciplineNewComponent,
     DisciplineEditComponent,
-    RegistrationsComponent,
-    RegistrationDetailComponent,
-    RegistrationNewComponent,
-    RegistrationEditComponent,
+    EnrollsComponent,
+    EnrollDetailComponent,
+    EnrollNewComponent,
+    EnrollEditComponent,
     StudentsComponent,
     StudentDetailComponent,
     MenuComponent
