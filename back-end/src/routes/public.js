@@ -13,20 +13,20 @@ const studentController = new StudentController();
 router.route('/hello').get(helloController.hello);
 
 //Class
-router.route('/class').get(classController.fetchAll);
-router.route('/class/:id').get(classController.fetchClass);
-router.route('/class/:id/disciplines').get(classController.fetchDisciplines);
-router.route('/class/:id/disciplines/:idDiscipline').get(classController.fetchDiscipline);
+router.route('/classes').get(classController.fetchAll);
+router.route('/classes/:id').get(classController.fetchClass);
+router.route('/classes/:id/disciplines').get(classController.fetchDisciplines);
+router.route('/classes/:id/disciplines/:idDiscipline').get(classController.fetchDiscipline);
 
 //Discipline
 router.route('/disciplines').get(disciplineController.fetchAll);
 router.route('/disciplines/:id').get(disciplineController.fetchDiscipline);
 
 //Enroll
-router.route('/enroll')
+router.route('/enrolls')
   .get(enrollController.fetchAll)
   .post(enrollController.enroll);
-router.route('/enroll/:id').get(enrollController.fetchEnroll);
+router.route('/enrolls/:id').get(enrollController.fetchEnroll);
 
 //Student
 router.route('/students').get(studentController.fetchAll);
