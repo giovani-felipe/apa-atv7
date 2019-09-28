@@ -6,7 +6,7 @@ class DisciplineController {
 
     fetchAll(req, res, next) {
         let service = new DisciplineService();
-        let data = service.findAll();
+        let data = service.fetchAll();
         res.json({ status: 'success', data });
     }
 
@@ -14,7 +14,7 @@ class DisciplineController {
         let service = new DisciplineService();
         let { id } = req.params;
 
-        let data = service.findDiscipline(id);
+        let data = service.fetchDiscipline(id);
         res.json({ status: 'success', data });
     }
 

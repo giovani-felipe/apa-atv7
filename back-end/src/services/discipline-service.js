@@ -2,12 +2,17 @@ const { DisciplinesMock } = require('./moks');
 const { DisciplineDomain } = require('../domain');
 class DisciplineService {
 
-  findAll() {
+  fetchAll() {
     return DisciplinesMock.map(({ id, name }) => new DisciplineDomain(id, name));
   }
 
-  findDiscipline(id) {
+  fetchDiscipline(id) {
     return DisciplinesMock.find(ele => ele.id == id);
+  }
+
+  fetchDisciplines(ids = []) {
+    return DisciplinesMock.filter(ele => ids.includes(ele.id))
+      .map(({ id, name }) => new DisciplineDomain(id, name));
   }
 }
 

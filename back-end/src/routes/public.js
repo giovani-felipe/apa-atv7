@@ -15,11 +15,12 @@ router.route('/hello').get(helloController.hello);
 //Class
 router.route('/class').get(classController.fetchAll);
 router.route('/class/:id').get(classController.fetchClass);
-router.route('/class/disciplines/:id').get(classController.fetchDisciplines);
+router.route('/class/:id/disciplines').get(classController.fetchDisciplines);
+router.route('/class/:id/disciplines/:idDiscipline').get(classController.fetchDiscipline);
 
 //Discipline
-router.route('/discipline').get(disciplineController.fetchAll);
-router.route('/discipline/:id').get(disciplineController.fetchDiscipline);
+router.route('/disciplines').get(disciplineController.fetchAll);
+router.route('/disciplines/:id').get(disciplineController.fetchDiscipline);
 
 //Enroll
 router.route('/enroll')

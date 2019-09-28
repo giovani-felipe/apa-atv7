@@ -7,7 +7,7 @@ class ClassController {
     fetchAll(req, res, next) {
         const service = new ClasseService();
 
-        const data = service.findAll();
+        const data = service.fetchAll();
 
         res.json({ status: 'success', data });
     }
@@ -15,16 +15,24 @@ class ClassController {
     fetchClass(req, res, next) {
         const service = new ClasseService();
         let { id } = req.params;
-        const data = service.findClass(id);
+        const data = service.fetchClass(id);
 
         res.json({ status: 'success', data });
     }
 
     fetchDisciplines(req, res, next) {
         const service = new ClasseService();
-
         const { id } = req.params;
-        const data = service.findDisciplines(id);
+        const data = service.fetchDisciplines(id);
+
+        res.json({ status: 'success', data });
+    }
+
+    fetchDiscipline(req, res, next) {
+        const service = new ClasseService();
+
+        const { id, idDiscipline } = req.params;
+        const data = service.fetchDiscipline(id, idDiscipline);
 
         res.json({ status: 'success', data });
     }

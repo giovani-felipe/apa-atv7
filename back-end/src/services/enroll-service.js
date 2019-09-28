@@ -1,21 +1,22 @@
-const { OfferMock } = require('./moks');
+const { EnrollDomain } = require('../domain');
 const ClasseService = require('./classe-service'),
   DisciplineService = require('./discipline-service'),
   StudentService = require('./student-service'),
   OfferService = require('./offer-service');
+
 
 const { enroll } = require('../repositories/models');
 
 class EnrollService {
 
   async enroll(idStudent, idClass, idDiscipline) {
-    const student = this.findStudent(idStudent);
+    const student = this.fetchStudent(idStudent);
 
-    const classe = this.findClass(idClass);
+    const classe = this.fetchClass(idClass);
 
-    const discipline = this.findDiscipline(idDiscipline);
+    const discipline = this.fetchDiscipline(idDiscipline);
 
-    const offer = this.findOffer(classe.id, discipline.id);
+    const offer = this.fetchOffer(classe.id, discipline.id);
 
     const total = await enroll.count({ where: { idOffer: offer.id } });
 
@@ -35,9 +36,9 @@ class EnrollService {
     return await enroll.findAll();
   }
 
-  findStudent(id) {
+  fetchStudent(id) {
     const studentService = new StudentService();
-    const student = studentService.findStudent(id);
+    const student = studentService.fetchStudent(id);
 
     if (typeof student == 'undefined')
       throw new Error('Student not found!');
@@ -45,30 +46,42 @@ class EnrollService {
     return student;
   }
 
-  findClass(id) {
+  fetchClass(id) {
     const classService = new ClasseService();
-    const classe = classService.findClass(id);
+    const classe = classService.fetchClass(id);
 
     if (typeof classe == 'undefined')
       throw new Error('Class not found!');
     return classe;
   }
 
-  findDiscipline(id) {
+  fetchDiscipline(id) {
     const disciplineService = new DisciplineService();
-    const discipline = disciplineService.findDiscipline(id);
+    const discipline = disciplineService.fetchDiscipline(id);
 
     if (typeof discipline == 'undefined')
       throw new Error('Discipline not found!');
     return discipline;
   }
 
-  findOffer(idClass, idDiscipline) {
-    const offer = new OfferService().findByClassAndDiscipline(idClass, idDiscipline);
+  fetchOffer(id) {
+    const offer = new OfferService().fetch(id);
+
+    return offer;
+  }
+
+  fetchOfferByClassAndDiscipline(idClass, idDiscipline) {
+    const offer = new OfferService().fetchByClassAndDiscipline(idClass, idDiscipline);
 
     if (typeof offer == 'undefined')
       throw new Error('Class has not disciplines!');
     return offer;
+  }
+
+  async fetch(idEnroll) {
+    const { id, idStudent, idOffer, state, createdAt } = await enroll.findByPk(idEnroll);
+
+    return new EnrollDomain(id, idStudent, idOffer, state, createdAt)
   }
 }
 

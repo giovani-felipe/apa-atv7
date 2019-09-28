@@ -1,4 +1,4 @@
-wconst Base = require('./base');
+const Base = require('./base');
 
 class StudentDomain extends Base {
     constructor(id, name, cpf, fone, email, address, birth) {

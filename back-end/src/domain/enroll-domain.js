@@ -1,11 +1,13 @@
 const Base = require('./base');
 
-class RegistrationDomain extends Base {
-    constructor(id, discipline, code, state) {
+class EnrollDomain extends Base {
+    constructor(id, idStudent, idOffer, state, createdAt) {
         super(id);
-        this.discipline = discipline;
+        this.idStudent = idStudent;
+        this.idOffer = idOffer;
         this.state = state;
+        this.createdAt = createdAt;
     }
 }
 
-module.exports = RegistrationDomain;
+module.exports = EnrollDomain;

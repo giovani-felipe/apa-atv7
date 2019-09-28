@@ -3,7 +3,7 @@ class StudentController {
 
     fetchAll(req, res, next) {
         const service = new StudentService();
-        const data = service.findAll();
+        const data = service.fetchAll();
         res.json({ status: 'success', data });
     }
 
@@ -11,7 +11,7 @@ class StudentController {
         const service = new StudentService();
         const { id } = req.params;
 
-        const data = service.findStudent(id);
+        const data = service.fetchStudent(id);
         res.json({ status: 'success', data });
     }
 }

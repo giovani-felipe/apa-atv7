@@ -3,8 +3,8 @@ const { RegistrationDomain } = require('../domain');
 
 class RegistrationService {
 
-  async findAll() {
-    let data = await repository.findAll(
+  async fetchAll() {
+    let data = await repository.fetchAll(
       {
         include: [{ model: Registration, attributes: { exclude: ['createdAt', 'updatedAt'] } }],
         attributes: { exclude: ['createdAt', 'updatedAt'] }
@@ -24,11 +24,11 @@ class RegistrationService {
     return registration;
   }
 
-  async findRegistration(id = null) {
+  async fetchRegistration(id = null) {
     if (id === null)
       throw new Error('Student id is necessary!');
 
-    let data = await repository.findOne(
+    let data = await repository.fetchOne(
       {
         where: { id },
         include: [{ model: Student, attributes: { exclude: ['createdAt', 'updatedAt'] } }],

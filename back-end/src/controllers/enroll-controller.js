@@ -12,8 +12,13 @@ class EnrollController {
         res.json({ status: 'success', data });
     }
 
-    fetchEnroll(req, res, next) {
-        res.json({ data: 'fetchRegistration' });
+    async fetchEnroll(req, res, next) {
+        const service = new EnrollService();
+        const { idStudent, idClass, idDiscipline } = req.body;
+
+        const data = await service.enroll(idStudent, idClass, idDiscipline);
+
+        res.json({ status: 'success', data });
     }
 
     async enroll(req, res, next) {
