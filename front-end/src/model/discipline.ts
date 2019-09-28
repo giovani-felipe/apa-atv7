@@ -1,5 +1,5 @@
 export class Discipline {
-    _id: string;
+    id: string;
     name_discipline: string;
     desc_discipline: string;
     id_class: string;

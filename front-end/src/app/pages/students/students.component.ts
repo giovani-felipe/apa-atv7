@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/service/api.service';
 import { Student } from 'src/model/student';
 
 
@@ -15,15 +15,17 @@ export class StudentsComponent implements OnInit {
   isLoadingResults: boolean;
   baseURL = "http://localhost:8000/api";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.getStudents();
-  }
-
-  getStudents(){
-    this.httpClient.get(this.baseURL + '/alunos').subscribe((res)=>{
+    this.api.getAll<Student>("students")
+    .subscribe(res => {
       this.dataSource = res["data"];
+      console.log(this.dataSource);
+      this.isLoadingResults = false;
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
     });
   }
 

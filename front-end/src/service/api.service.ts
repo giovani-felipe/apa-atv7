@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Discipline } from 'src/model/discipline';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:5000/api/disciplines';
+const apiUrl = 'http://localhost:8000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -16,44 +15,44 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getDisciplines (): Observable<Discipline[]> {
-    return this.http.get<Discipline[]>(apiUrl)
+  getAll<T> (entity: string): Observable<T[]> {
+    return this.http.get<T[]>(`${apiUrl}/${entity}`)
       .pipe(
-        tap(disciplines => console.log('leu as disciplinas')),
-        catchError(this.handleError('getDisciplines', []))
+        tap(_ => console.log('leu as entidades')),
+        catchError(this.handleError('getAll', []))
       );
   }
 
-  getDiscipline(id: number): Observable<Discipline> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.get<Discipline>(url).pipe(
-      tap(_ => console.log(`leu a disciplina id=${id}`)),
-      catchError(this.handleError<Discipline>(`getDiscipline id=${id}`))
+  getOne<T>(id: string, entity: string): Observable<T> {
+    const url = `${apiUrl}/${entity}`;
+    return this.http.get<T>(url)
+      .pipe(
+        tap(_ => console.log(`leu a entidade id=${id}`)),
+        catchError(this.handleError<T>(`getOne id=${id}`))
     );
   }
 
-  addDiscipline (discipline): Observable<Discipline> {
-    return this.http.post<Discipline>(apiUrl, discipline, httpOptions).pipe(
-      // tslint:disable-next-line:no-shadowed-variable
-      tap((discipline: Discipline) => console.log(`adicionou a disciplina com w/ id=${discipline._id}`)),
-      catchError(this.handleError<Discipline>('addDiscipline'))
+  add<T>(element, entity: string): Observable<T> {
+    return this.http.post<T>(`${apiUrl}/${entity}`, element, httpOptions).pipe(
+      tap((element: T) => console.log(`adicionou a entidade`)),
+      catchError(this.handleError<T>('add'))
     );
   }
 
-  updateDiscipline(id, discipline): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.put(url, discipline, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o produco com id=${id}`)),
-      catchError(this.handleError<any>('updateDiscipline'))
+  update(id, element, entity): Observable<any> {
+    const url = `${apiUrl}/${entity}/${id}`;
+    return this.http.put(url, element, httpOptions).pipe(
+      tap(_ => console.log(`atualiza o elemento com id=${id}`)),
+      catchError(this.handleError<any>('update'))
     );
   }
 
-  deleteDiscipline (id): Observable<Discipline> {
-    const url = `${apiUrl}/delete/${id}`;
+  delete<T>(id, entity): Observable<T> {
+    const url = `${apiUrl}/${entity}/delete/${id}`;
 
-    return this.http.delete<Discipline>(url, httpOptions).pipe(
-      tap(_ => console.log(`remove a disciplina com id=${id}`)),
-      catchError(this.handleError<Discipline>('deleteDiscipline'))
+    return this.http.delete<T>(url, httpOptions).pipe(
+      tap(_ => console.log(`remove a entidade com id=${id}`)),
+      catchError(this.handleError<T>('delete'))
     );
   }
 

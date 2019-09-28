@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/service/api.service';
 import { Class } from 'src/model/class';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-classes',
@@ -15,17 +14,17 @@ export class ClassesComponent implements OnInit {
   isLoadingResults: boolean;
   baseURL = "http://localhost:8000/api";
 
-  constructor(private _api: ApiService, private httpClient: HttpClient) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit() {    
-    this.getClasses();
-    this.isLoadingResults = false;   
-  }
-
-  getClasses(){
-    this.httpClient.get(this.baseURL + '/turmas').subscribe((res)=>{
+    this.api.getAll<Class>("classes")
+    .subscribe(res => {      
       this.dataSource = res["data"];
-    });
+      this.isLoadingResults = false;      
+    }, err => {
+      console.log(err);
+      this.isLoadingResults = false;
+    });   
   }
 
 }
