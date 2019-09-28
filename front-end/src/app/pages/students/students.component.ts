@@ -13,7 +13,6 @@ export class StudentsComponent implements OnInit {
   displayedColumns: string[] = [ 'name', 'address', 'birth', 'email', 'phone', 'cpf' ];
   dataSource: Student[];
   isLoadingResults: boolean;
-  baseURL = "http://localhost:8000/api";
 
   constructor(private api: ApiService) { }
 
