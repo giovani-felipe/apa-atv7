@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   getOne<T>(id: string, entity: string): Observable<T> {
-    const url = `${apiUrl}/${entity}`;
+    const url = `${apiUrl}/${entity}/${id}`;
     return this.http.get<T>(url)
       .pipe(
         tap(_ => console.log(`leu a entidade id=${id}`)),

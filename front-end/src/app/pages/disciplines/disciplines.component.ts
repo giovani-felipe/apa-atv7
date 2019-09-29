@@ -14,6 +14,7 @@ export class DisciplinesComponent implements OnInit {
   dataSource: Discipline[];
   isLoadingResults: boolean;
   currentClass: Class;
+  currentClassName: string;
 
   constructor(private api: ApiService) { }
 
@@ -22,9 +23,8 @@ export class DisciplinesComponent implements OnInit {
     .subscribe(res => {
       this.dataSource = res["data"];
       let elements = this.dataSource;
-      elements.forEach(d => {
-        console.log(this.getClassName(d.id_class));
-        d["class"] = this.getClassName(d.id_class)["data"]["name"];
+      elements.forEach(d => {        
+        this.setClassName(d);
       })
       console.log(this.dataSource);
       this.isLoadingResults = false;
@@ -34,8 +34,19 @@ export class DisciplinesComponent implements OnInit {
     });
   }
 
-  getClassName(id) {
-    return this.api.getOne<Class>(id, "classes");
+  setClassName(currentDiscipline) {
+    this.api.getOne<Class>(currentDiscipline.id_class, "classes")
+    .subscribe(res => {
+      this.currentClassName = res["data"]["name"];
+      this.setName(currentDiscipline);
+    }, err => {
+      console.log(err);
+    });   
+  }
+
+  setName(currentDiscipline)
+  {
+    currentDiscipline["class"] = this.currentClassName;
   }
 
 
