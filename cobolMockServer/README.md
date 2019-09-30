@@ -1,6 +1,8 @@
 # Cobol Mock Server
 
-Servidor utilizado para simular o sistema legado em Cobol, responsável pela persistência de dados de Turmas, Disciplinas e Alunos  
+Servidor utilizado para simular o sistema legado em Cobol, responsável pela persistência de dados de Turmas, Disciplinas e Alunos
+
+## [Link do desenvolvedor](https://www.npmjs.com/package/mock-json-server)
 
 ## Execução  
 
