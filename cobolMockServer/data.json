@@ -268,5 +268,57 @@
 				"shift": "Noite"
 			}
 		}
+	},
+	"/api/enrolls": {
+		"get": {
+			"data": [
+				{
+					"id": 1,
+					"id_student": 1,
+					"id_discipline": 1
+				},
+				{
+					"id": 2,
+					"id_student": 1,
+					"id_discipline": 2
+				},
+				{
+					"id": 3,
+					"id_student": 3,
+					"id_discipline": 3
+				},
+				{
+					"id": 4,
+					"id_student": 2,
+					"id_discipline": 2
+				},
+				{
+					"id": 5,
+					"id_student": 3,
+					"id_discipline": 1
+				},
+				{
+					"id": 6,
+					"id_student": 2,
+					"id_discipline": 3
+				}
+			]
+		},
+		"post": {
+			"data": {
+				"id": 3,
+				"id_student": 2,
+				"id_discipline": 3
+			}
+		}
+	},
+	"/api/enrolls/delete/:id": {
+		"delete": {
+			"data": {
+				"id": 1,
+				"id_student": 1,
+				"id_discipline": 1
+			}
+		}
 	}
 }

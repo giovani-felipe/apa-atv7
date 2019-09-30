@@ -19,7 +19,7 @@ enrollForm: FormGroup;
 selectFormControl = new FormControl('', Validators.required);
 selectFormControl2 = new FormControl('', Validators.required);
 selectFormControl3 = new FormControl('', Validators.required);
-isLoadingResults = false;
+isLoadingResults = true;
 enrolls: Enroll[];
 classes: Class[];
 disciplines: Discipline[] = [];
@@ -36,47 +36,42 @@ students: Student[];
 
     this.api.getAll<Class>("classes")
     .subscribe(res => {      
-      this.classes = res["data"];
-      this.isLoadingResults = false;      
+      this.classes = res["data"];           
     }, err => {
       console.log(err);
-      this.isLoadingResults = false;
     });
 
     this.api.getAll<Student>("students")
     .subscribe(res => {      
       this.students = res["data"];
-      this.isLoadingResults = false;      
     }, err => {
       console.log(err);
-      this.isLoadingResults = false;
     });
+
+    this.isLoadingResults = false; 
 
   }
 
   addEnroll(form: NgForm) {
-    this.isLoadingResults = true;
-
     this.api.add<Enroll>(form, "enrolls")
       .subscribe(res => {
-          const id = res['id'];
-          this.isLoadingResults = false;
+          const id = res['data']['id'];
+          console.log("Criada matrícula com id " + id);
           this.router.navigate(['/enrolls']);
         }, (err) => {
           console.log(err);
-          this.isLoadingResults = false;
         });
   }
 
   getDisciplines(id)
   {
+    this.isLoadingResults = true; 
     this.api.getAll<Discipline>("disciplines")
       .subscribe(res => {      
-        this.disciplines = res["data"].filter(d => d.id_class==id);
-        this.isLoadingResults = false;      
+        this.disciplines = res["data"].filter(d => d.id_class==id); 
       }, err => {
         console.log(err);
-        this.isLoadingResults = false;
       });
+    this.isLoadingResults = false; 
   }
 }

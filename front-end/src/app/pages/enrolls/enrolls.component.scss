@@ -6,5 +6,15 @@ table {
  
  .mat-header-cell {
      font-size:  18px !important;
-     font-weight: 700; 
+     font-weight: 700;
+     text-align: center;
  }
+
+ .edition-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.edition-container > * {
+    width: 50%;
+}

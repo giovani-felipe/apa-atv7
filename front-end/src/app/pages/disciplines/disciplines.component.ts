@@ -48,6 +48,4 @@ export class DisciplinesComponent implements OnInit {
   {
     currentDiscipline["class"] = this.currentClassName;
   }
-
-
 }
