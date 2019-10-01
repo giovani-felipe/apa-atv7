@@ -5,17 +5,16 @@ class DisciplineController {
     }
 
     fetchAll(req, res, next) {
-        let service = new DisciplineService();
-        let data = service.fetchAll();
-        res.json({ status: 'success', data });
+        const response = await fetch('http://localhost:8000/api/disciplines')
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 
     fetchDiscipline(req, res, next) {
-        let service = new DisciplineService();
         let { id } = req.params;
-
-        let data = service.fetchDiscipline(id);
-        res.json({ status: 'success', data });
+        const response = await fetch('http://localhost:8000/api/disciplines/'+id)
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 
 }

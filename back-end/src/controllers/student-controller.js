@@ -1,18 +1,19 @@
 const { StudentService } = require('../services');
+const fetch = require('node-fetch');
+
 class StudentController {
 
-    fetchAll(req, res, next) {
-        const service = new StudentService();
-        const data = service.fetchAll();
-        res.json({ status: 'success', data });
+    async fetchAll(req, res, next) {
+        const response = await fetch('http://localhost:8000/api/students')
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 
     fetchStudent(req, res, next) {
-        const service = new StudentService();
         const { id } = req.params;
-
-        const data = service.fetchStudent(id);
-        res.json({ status: 'success', data });
+        const response = await fetch('http://localhost:8000/api/students/'+id)
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 }
 

@@ -1,23 +1,22 @@
 const { ClasseService } = require('../services');
+const fetch = require('node-fetch');
+
 class ClassController {
     constructor() {
 
     }
 
     fetchAll(req, res, next) {
-        const service = new ClasseService();
-
-        const data = service.fetchAll();
-
-        res.json({ status: 'success', data });
+        const response = await fetch('http://localhost:8000/api/classes')
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 
     fetchClass(req, res, next) {
-        const service = new ClasseService();
         let { id } = req.params;
-        const data = service.fetchClass(id);
-
-        res.json({ status: 'success', data });
+        const response = await fetch('http://localhost:8000/api/classes/'+id)
+        const data = await response.json();
+        res.json({ status: 'success', data: data.data});
     }
 
     fetchDisciplines(req, res, next) {
