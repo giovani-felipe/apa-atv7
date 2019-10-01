@@ -9,7 +9,7 @@ class StudentController {
         res.json({ status: 'success', data: data.data});
     }
 
-    fetchStudent(req, res, next) {
+    async fetchStudent(req, res, next) {
         const { id } = req.params;
         const response = await fetch('http://localhost:8000/api/students/'+id)
         const data = await response.json();

@@ -6,13 +6,13 @@ class ClassController {
 
     }
 
-    fetchAll(req, res, next) {
+    async fetchAll(req, res, next) {
         const response = await fetch('http://localhost:8000/api/classes')
         const data = await response.json();
         res.json({ status: 'success', data: data.data});
     }
 
-    fetchClass(req, res, next) {
+    async fetchClass(req, res, next) {
         let { id } = req.params;
         const response = await fetch('http://localhost:8000/api/classes/'+id)
         const data = await response.json();
